@@ -1,4 +1,3 @@
-//package learn.plcoding.chirp.convention
 import com.android.build.api.dsl.ApplicationExtension
 import learn.plcoding.chirp.convention.configureKotlinAndroid
 import learn.plcoding.chirp.convention.libs

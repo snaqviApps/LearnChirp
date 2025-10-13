@@ -49,7 +49,7 @@ coil-network = "3.3.0"
 moko = "0.19.1"
 buildkonfig = "0.17.1"
 
-projectApplicationId = "com.plcoding.chirp"
+projectApplicationId = "learn.plcoding.chirp"
 projectVersionName = "1.0"
 projectMinSdkVersion = "26"
 projectTargetSdkVersion = "36"
@@ -158,8 +158,9 @@ androidx-runner = { group = "androidx.test", name = "runner", version.ref = "run
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
 
 [plugins]
-#convention-android-application = { id = "learn.plcoding.convention.android.application", version= "unspecified" }
 convention-android-application = { id = "learn.plcoding.convention.android.application", version = "unspecified" }
+convention-android-application-compose = { id = "learn.plcoding.convention.android.application.compose", version= "unspecified" }
+convention-cmp-application = { id = "learn.plcoding.convention.cmp.application", version= "unspecified" }
 
 
 # Android

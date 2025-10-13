@@ -37,6 +37,15 @@ gradlePlugin {
             id = "learn.plcoding.convention.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
+        register("androidComposeApplication") {
+            id = "learn.plcoding.convention.android.application.compose"
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
+        register("cmpApplication") {
+            id = "learn.plcoding.convention.cmp.application"
+            implementationClass = "CmpApplicationConventionPlugin"
+        }
+
     }
 }
 
