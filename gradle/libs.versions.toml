@@ -161,6 +161,11 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "j
 convention-android-application = { id = "learn.plcoding.convention.android.application", version = "unspecified" }
 convention-android-application-compose = { id = "learn.plcoding.convention.android.application.compose", version= "unspecified" }
 convention-cmp-application = { id = "learn.plcoding.convention.cmp.application", version= "unspecified" }
+convention-kmp-library = { id = "learn.plcoding.convention.kmp.library", version = "unspecified" }
+#convention-cmp-library = { id = "com.plcoding.convention.cmp.library", version = "unspecified" }
+#convention-cmp-feature = { id = "com.plcoding.convention.cmp.feature", version = "unspecified" }
+#convention-buildkonfig = { id = "com.plcoding.convention.buildkonfig", version = "unspecified" }
+#convention-room = { id = "com.plcoding.convention.room", version = "unspecified" }
 
 
 # Android
