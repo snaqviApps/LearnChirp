@@ -180,7 +180,7 @@ convention-kmp-library = { id = "learn.plcoding.convention.kmp.library", version
 convention-cmp-library = { id = "learn.plcoding.convention.cmp.library", version = "unspecified" }
 convention-cmp-feature = { id = "learn.plcoding.convention.cmp.feature", version = "unspecified" }
 convention-buildkonfig = { id = "learn.plcoding.convention.buildkonfig", version = "unspecified" }
-#convention-room = { id = "com.plcoding.convention.room", version = "unspecified" }
+convention-room = { id = "learn.plcoding.convention.room", version = "unspecified" }
 
 
 # Android
