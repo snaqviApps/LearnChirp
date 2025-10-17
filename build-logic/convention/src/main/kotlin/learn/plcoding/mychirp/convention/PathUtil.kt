@@ -1,4 +1,4 @@
-package learn.plcoding.chirp.convention
+package learn.plcoding.mychirp.convention
 
 import org.gradle.api.Project
 import java.util.Locale

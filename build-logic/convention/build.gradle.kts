@@ -50,6 +50,16 @@ gradlePlugin {
             implementationClass = "KmpLibraryConventionPlugin"
         }
 
+        register("cmpLibrary") {
+            id = "learn.plcoding.convention.cmp.library"
+            implementationClass = "CmpLibraryConventionPlugin"
+        }
+
+        register("cmpFeature") {
+            id = "learn.plcoding.convention.cmp.feature"
+            implementationClass = "CmpFeatureConventionPlugin"
+        }
+
     }
 }
 

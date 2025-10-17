@@ -1,7 +1,7 @@
 
-import learn.plcoding.chirp.convention.configureAndroidTarget
-import learn.plcoding.chirp.convention.configureIosTargets
-import learn.plcoding.chirp.convention.libs
+import learn.plcoding.mychirp.convention.configureAndroidTarget
+import learn.plcoding.mychirp.convention.configureIosTargets
+import learn.plcoding.mychirp.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies

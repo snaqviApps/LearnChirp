@@ -1,9 +1,9 @@
 
 import com.android.build.api.dsl.LibraryExtension
-import learn.plcoding.chirp.convention.configureKotlinAndroid
-import learn.plcoding.chirp.convention.configureKotlinMultiplatform
-import learn.plcoding.chirp.convention.libs
-import learn.plcoding.chirp.convention.pathToResourcePrefix
+import learn.plcoding.mychirp.convention.configureKotlinAndroid
+import learn.plcoding.mychirp.convention.configureKotlinMultiplatform
+import learn.plcoding.mychirp.convention.libs
+import learn.plcoding.mychirp.convention.pathToResourcePrefix
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -14,6 +14,7 @@ class KmpLibraryConventionPlugin: Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
+//                apply("com.android.kotlin.multiplatform.library")
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.multiplatform")
                 apply("org.jetbrains.kotlin.plugin.serialization")

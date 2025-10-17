@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
-import learn.plcoding.chirp.convention.configureKotlinAndroid
-import learn.plcoding.chirp.convention.libs
+import learn.plcoding.mychirp.convention.configureKotlinAndroid
+import learn.plcoding.mychirp.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

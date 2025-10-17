@@ -1,4 +1,4 @@
-package learn.plcoding.chirp.convention
+package learn.plcoding.mychirp.convention
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
