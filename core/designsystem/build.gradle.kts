@@ -42,5 +42,7 @@ kotlin {
 
 
 compose.resources {
-    publicResClass = true
+    publicResClass = false
+    packageOfResClass = "mychirp.core.designsystem.composeresources"
+    generateResClass = auto
 }

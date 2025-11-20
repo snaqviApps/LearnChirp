@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="hide_password">Hide password</string>
+    <string name="show_password">Show password</string>
+    <string name="password_must_be_9_characters">password must be 9+</string>
+    <string name="password_error_message">password error message</string>
+</resources>

@@ -6,8 +6,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import mychirp.core.designsystem.generated.resources.Res
-import mychirp.core.designsystem.generated.resources.*
+import mychirp.core.designsystem.composeresources.*
+
 import org.jetbrains.compose.resources.Font
 
 val PlusJakartaSans @Composable get() = FontFamily(
@@ -21,6 +21,10 @@ val PlusJakartaSans @Composable get() = FontFamily(
     ),
     Font(
         resource = Res.font.plusjakartasans_medium,
+        weight = FontWeight.Medium
+    ),
+    Font(
+        resource =Res.font.plusjakartasans_medium,
         weight = FontWeight.Medium
     ),
     Font(
