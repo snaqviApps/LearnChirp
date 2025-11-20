@@ -89,9 +89,9 @@ fun MyChirpPasswordTextField(
                     }
                     Icon(
                         imageVector = if (isPasswordVisible) {
-                            vectorResource(Res.drawable.password_show)          // preview is not working
+                            vectorResource(Res.drawable.eye_icon)          // preview is not working
                         } else {
-                            vectorResource(Res.drawable.password_hide)
+                            vectorResource(Res.drawable.eye_off_icon)
                         },
                         contentDescription = if(isPasswordVisible){
                             stringResource(Res.string.hide_password)
