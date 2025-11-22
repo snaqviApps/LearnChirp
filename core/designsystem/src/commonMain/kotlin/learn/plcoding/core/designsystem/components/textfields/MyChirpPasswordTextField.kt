@@ -89,7 +89,7 @@ fun MyChirpPasswordTextField(
                     }
                     Icon(
                         imageVector = if (isPasswordVisible) {
-                            vectorResource(Res.drawable.eye_icon)          // preview is not working
+                            vectorResource(Res.drawable.eye_icon)
                         } else {
                             vectorResource(Res.drawable.eye_off_icon)
                         },

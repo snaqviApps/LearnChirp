@@ -1,6 +1,6 @@
 package learn.plcoding.core.data.network
 
-import com.plcoding.core.data.BuildKonfig
+import learn.plcoding.core.data.BuildKonfig
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.HttpTimeout
