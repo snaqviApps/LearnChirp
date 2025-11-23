@@ -4,18 +4,19 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import learn.plcoding.core.designsystem.theme.extended
 import mychirp.core.designsystem.composeresources.Res
-import mychirp.core.designsystem.composeresources.logo
+import mychirp.core.designsystem.composeresources.success_checkmark
 import org.jetbrains.compose.resources.vectorResource
 
 @Composable
-fun MyChirpBrandLogo(
+fun MyChirpSuccessIcon(
     modifier: Modifier = Modifier
 ) {
     Icon(
-        imageVector = vectorResource(Res.drawable.logo),
+        imageVector = vectorResource(Res.drawable.success_checkmark),
         contentDescription = null,
-        tint = MaterialTheme.colorScheme.primary,
+        tint = MaterialTheme.colorScheme.extended.success,
         modifier = modifier
     )
 }
