@@ -1,3 +1,3 @@
-package learn.plcoding.auth.data
+package learn.plcoding.chat.data
 
 actual fun platform() = "Android"

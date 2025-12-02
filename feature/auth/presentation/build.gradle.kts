@@ -16,9 +16,12 @@ kotlin {
 
                 // Add KMP dependencies here
                 implementation(projects.feature.auth.domain)
+
                 implementation(projects.core.domain)
                 implementation(projects.core.designsystem)
                 implementation(projects.core.presentation)
+                implementation(compose.components.resources)
+                implementation(compose.components.uiToolingPreview)
             }
         }
 

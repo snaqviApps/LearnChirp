@@ -16,12 +16,14 @@ kotlin {
         }
         commonMain.dependencies {
             implementation(projects.core.data)
-            implementation(projects.core.domain)
+
+//            implementation(projects.core.domain)
+
             implementation(projects.core.designsystem)
             implementation(projects.core.presentation)
 
 //            implementation(projects.feature.auth.domain)
-//            implementation(projects.feature.auth.presentation)
+            implementation(projects.feature.auth.presentation)
 //            -------> above two dependencies cause this error:'.....D8: Type learn.plcoding.auth.presentation.Platform_androidKt is defined multiple times:'
 
             implementation(projects.feature.chat.data)

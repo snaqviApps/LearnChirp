@@ -1,4 +1,4 @@
-package learn.plcoding.core.designsystem.components.layout
+package com.plcoding.core.designsystem.components.layouts
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
@@ -26,10 +26,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import learn.plcoding.core.designsystem.components.brand.MyChirpBrandLogo
 import learn.plcoding.core.designsystem.theme.extended
 import learn.plcoding.core.presentation.util.DeviceConfiguration
 import learn.plcoding.core.presentation.util.currentDeviceConfiguration
+import learn.plcoding.core.designsystem.components.brand.MyChirpBrandLogo
+import learn.plcoding.core.designsystem.components.layout.MyChirpSurface
+import learn.plcoding.core.designsystem.theme.MyChirpTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -37,18 +39,18 @@ fun MyChirpAdaptiveFormLayout(
     headerText: String,
     errorText: String? = null,
     logo: @Composable () -> Unit,
-    formContent: @Composable ColumnScope.() -> Unit,                // content of the screen embedded in this layout
     modifier: Modifier = Modifier,
+    formContent: @Composable ColumnScope.() -> Unit
 ) {
-    val devConfig = currentDeviceConfiguration()
-    val headerColor = if(devConfig == DeviceConfiguration.MOBILE_LANDSCAPE) {
+    val configuration = currentDeviceConfiguration()
+    val headerColor = if(configuration == DeviceConfiguration.MOBILE_LANDSCAPE) {
         MaterialTheme.colorScheme.onBackground
     } else {
         MaterialTheme.colorScheme.extended.textPrimary
     }
 
-    when(devConfig) {
-        DeviceConfiguration.MOBILE_PORTRAIT ->  {
+    when(configuration) {
+        DeviceConfiguration.MOBILE_PORTRAIT -> {
             MyChirpSurface(
                 modifier = modifier
                     .consumeWindowInsets(WindowInsets.navigationBars)
@@ -58,7 +60,7 @@ fun MyChirpAdaptiveFormLayout(
                     logo()
                     Spacer(modifier = Modifier.height(32.dp))
                 }
-            ){
+            ) {
                 Spacer(modifier = Modifier.height(24.dp))
                 AuthHeaderSection(
                     headerText = headerText,
@@ -68,20 +70,14 @@ fun MyChirpAdaptiveFormLayout(
                 Spacer(modifier = Modifier.height(24.dp))
                 formContent()
             }
-
         }
-    DeviceConfiguration.MOBILE_LANDSCAPE -> {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = modifier
-                .fillMaxSize()
-                .consumeWindowInsets(WindowInsets.displayCutout)
-        ){
+        DeviceConfiguration.MOBILE_LANDSCAPE -> {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 modifier = modifier
                     .fillMaxSize()
                     .consumeWindowInsets(WindowInsets.displayCutout)
+                    .consumeWindowInsets(WindowInsets.navigationBars)
             ) {
                 Column(
                     modifier = Modifier
@@ -93,52 +89,51 @@ fun MyChirpAdaptiveFormLayout(
                     AuthHeaderSection(
                         headerText = headerText,
                         headerColor = headerColor,
-                        errorText = errorText
+                        errorText = errorText,
+                        headerTextAlignment = TextAlign.Start
                     )
                 }
                 MyChirpSurface(
                     modifier = Modifier
                         .weight(1f)
-                ){
+                ) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    formContent()
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
+            }
+        }
+        DeviceConfiguration.TABLET_PORTRAIT,
+        DeviceConfiguration.TABLET_LANDSCAPE,
+        DeviceConfiguration.DESKTOP -> {
+            Column(
+                modifier = modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(top = 32.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(32.dp)
+            ) {
+                logo()
+                Column(
+                    modifier = Modifier
+                        .widthIn(max = 480.dp)
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(32.dp))
+                        .background(MaterialTheme.colorScheme.surface)
+                        .padding(horizontal = 24.dp, vertical = 32.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    AuthHeaderSection(
+                        headerText = headerText,
+                        headerColor = headerColor,
+                        errorText = errorText
+                    )
                     formContent()
                 }
             }
         }
     }
-    DeviceConfiguration.TABLET_PORTRAIT,
-    DeviceConfiguration.TABLET_LANDSCAPE,
-    DeviceConfiguration.DESKTOP -> {
-        Column(
-            modifier = modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
-                .padding(32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(32.dp)
-        ){
-            logo()
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .widthIn(480.dp)
-                    .clip(RoundedCornerShape(32.dp)),
-                verticalArrangement = Arrangement.spacedBy(24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ){
-                AuthHeaderSection(
-                    headerText = headerText,
-                    headerColor = headerColor,
-                    errorText = errorText
-                )
-                formContent()
-            }
-
-        }
-    }
-
-    }
-
-
 }
 
 @Composable
@@ -146,12 +141,13 @@ fun ColumnScope.AuthHeaderSection(
     headerText: String,
     headerColor: Color,
     errorText: String? = null,
+    headerTextAlignment: TextAlign = TextAlign.Center
 ) {
     Text(
         text = headerText,
         style = MaterialTheme.typography.titleLarge,
         color = headerColor,
-        textAlign = TextAlign.Center,
+        textAlign = headerTextAlignment,
         modifier = Modifier.fillMaxWidth()
     )
     AnimatedVisibility(
@@ -164,7 +160,7 @@ fun ColumnScope.AuthHeaderSection(
                 color = MaterialTheme.colorScheme.error,
                 modifier = Modifier
                     .fillMaxWidth(),
-                textAlign = TextAlign.Center
+                textAlign = headerTextAlignment
             )
         }
     }
@@ -172,11 +168,11 @@ fun ColumnScope.AuthHeaderSection(
 
 @Composable
 @Preview
-fun MyChirpAdaptiveFormLayoutPreview() {
-    learn.plcoding.core.designsystem.theme.MyChirpTheme {
+fun ChirpAdaptiveFormLayoutLightPreview() {
+    MyChirpTheme {
         MyChirpAdaptiveFormLayout(
             headerText = "Welcome to Chirp!",
-            errorText = "Login failed",
+            errorText = "Login failed!",
             logo = { MyChirpBrandLogo() },
             formContent = {
                 Text(
@@ -190,20 +186,17 @@ fun MyChirpAdaptiveFormLayoutPreview() {
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
-
         )
     }
 }
 
 @Composable
 @Preview
-fun MyChirpAdaptiveFormLayoutPreviewDarkThemePreview(
-    darkTheme: Boolean = true
-) {
-    learn.plcoding.core.designsystem.theme.MyChirpTheme {
+fun MyChirpAdaptiveFormLayoutDarkPreview() {
+    MyChirpTheme(darkTheme = true) {
         MyChirpAdaptiveFormLayout(
             headerText = "Welcome to Chirp!",
-            errorText = "Login failed",
+            errorText = "Login failed!",
             logo = { MyChirpBrandLogo() },
             formContent = {
                 Text(
@@ -217,7 +210,6 @@ fun MyChirpAdaptiveFormLayoutPreviewDarkThemePreview(
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
-
         )
     }
 }

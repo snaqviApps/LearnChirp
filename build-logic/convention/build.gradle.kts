@@ -15,6 +15,9 @@ dependencies {
     implementation(libs.buildkonfig.gradlePlugin)
     implementation(libs.buildkonfig.compiler)
 
+
+    compileOnly(libs.ksp.gradlePlugin)
+
 }
 
 java {
