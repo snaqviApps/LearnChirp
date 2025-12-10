@@ -171,7 +171,7 @@ fun ColumnScope.AuthHeaderSection(
 fun ChirpAdaptiveFormLayoutLightPreview() {
     MyChirpTheme {
         MyChirpAdaptiveFormLayout(
-            headerText = "Welcome to Chirp!",
+            headerText = "Welcome to My Chirp",
             errorText = "Login failed!",
             logo = { MyChirpBrandLogo() },
             formContent = {
@@ -195,7 +195,7 @@ fun ChirpAdaptiveFormLayoutLightPreview() {
 fun MyChirpAdaptiveFormLayoutDarkPreview() {
     MyChirpTheme(darkTheme = true) {
         MyChirpAdaptiveFormLayout(
-            headerText = "Welcome to Chirp!",
+            headerText = "Welcome to My Chirp",
             errorText = "Login failed!",
             logo = { MyChirpBrandLogo() },
             formContent = {

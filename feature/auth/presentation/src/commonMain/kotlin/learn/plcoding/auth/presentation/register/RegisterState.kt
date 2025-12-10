@@ -3,7 +3,7 @@ package learn.plcoding.auth.presentation.register
 import androidx.compose.foundation.text.input.TextFieldState
 import learn.plcoding.core.presentation.util.UiText
 
-data class  RegisterState(
+data class RegisterState(
     val emailTextState: TextFieldState = TextFieldState(),
     val isEmailValid: Boolean = false,
     val emailError: UiText? = null,

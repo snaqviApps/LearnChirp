@@ -54,6 +54,7 @@ fun MyChirpPasswordTextField(
         BasicSecureTextField(
             state = state,
             modifier = styleModifier,
+            enabled = enabled,
             textObfuscationMode = if(isPasswordVisible) {
                 TextObfuscationMode.Visible
             } else TextObfuscationMode.Hidden,
@@ -61,7 +62,7 @@ fun MyChirpPasswordTextField(
                 keyboardType = KeyboardType.Password
             ),
             textStyle = MaterialTheme.typography.bodyMedium.copy(
-                color = if (enabled) {
+                color = if(enabled) {
                     MaterialTheme.colorScheme.onSurface
                 } else {
                     MaterialTheme.colorScheme.extended.textPlaceholder
@@ -78,7 +79,7 @@ fun MyChirpPasswordTextField(
                         modifier = Modifier.weight(1f),
                         contentAlignment = Alignment.CenterStart
                     ){
-                        if (state.text.isEmpty() && placeholder != null) {
+                        if(state.text.isEmpty() && placeholder != null) {
                                 Text(
                                     text = placeholder,
                                     color = MaterialTheme.colorScheme.extended.textPlaceholder,
@@ -88,10 +89,10 @@ fun MyChirpPasswordTextField(
                             innerBox()
                     }
                     Icon(
-                        imageVector = if (isPasswordVisible) {
-                            vectorResource(Res.drawable.eye_icon)
-                        } else {
+                        imageVector = if(isPasswordVisible) {
                             vectorResource(Res.drawable.eye_off_icon)
+                        } else {
+                            vectorResource(Res.drawable.eye_icon)
                         },
                         contentDescription = if(isPasswordVisible){
                             stringResource(Res.string.hide_password)

@@ -10,7 +10,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.plcoding.core.designsystem.components.layouts.MyChirpAdaptiveFormLayout
 import learn.plcoding.core.designsystem.components.brand.MyChirpBrandLogo
 import learn.plcoding.core.designsystem.components.buttons.MyChirpButton
@@ -19,6 +18,7 @@ import learn.plcoding.core.designsystem.components.layout.MyChirpSnackbarScaffol
 import learn.plcoding.core.designsystem.components.textfields.MyChirpPasswordTextField
 import learn.plcoding.core.designsystem.components.textfields.MyChirpTextField
 import learn.plcoding.core.designsystem.theme.MyChirpTheme
+import learn.plcoding.core.presentation.util.ObserveAsEvents
 import mychirp.feature.auth.presentation.generated.resources.Res
 import mychirp.feature.auth.presentation.generated.resources.email
 import mychirp.feature.auth.presentation.generated.resources.email_placeholder
@@ -32,13 +32,24 @@ import mychirp.feature.auth.presentation.generated.resources.username_placeholde
 import mychirp.feature.auth.presentation.generated.resources.welcome_to_chirp
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun RegisterRoot(
-    viewModel: RegisterViewModel = viewModel()
+//    viewModel: RegisterViewModel = viewModel(),       // pre-Koin implementation
+    viewModel: RegisterViewModel = koinViewModel(),
+    onRegisterSuccess: (String) -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
+
+    ObserveAsEvents(viewModel.events) { event ->
+        when (event) {
+            is RegisterEvent.Success -> {
+                onRegisterSuccess(event.email)
+            }
+        }
+    }
 
     RegisterScreen(
         state = state,
@@ -51,13 +62,13 @@ fun RegisterRoot(
 fun RegisterScreen(
     state: RegisterState,
     onAction: (RegisterAction) -> Unit,
-    snackbarHostState : SnackbarHostState
+    snackbarHostState: SnackbarHostState
 ) {
     MyChirpSnackbarScaffold(
         snackbarHostState = snackbarHostState
     ) {
         MyChirpAdaptiveFormLayout(
-            stringResource(Res.string.welcome_to_chirp),
+            headerText = stringResource(Res.string.welcome_to_chirp),
             errorText = state.registrationError?.asString(),
             logo = { MyChirpBrandLogo() }
         ) {
@@ -94,12 +105,12 @@ fun RegisterScreen(
                 onFocusChanged = { isFocused ->
                     onAction(RegisterAction.OnInputTextFocusGain)
                 },
-                isPasswordVisible = state.isPasswordVisible,
                 onToggleVisibilityClick = {
                     onAction(RegisterAction.OnTogglePasswordVisibilityClick)
-                }
+                },
+                isPasswordVisible = state.isPasswordVisible
             )
-            Spacer(Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             MyChirpButton(
                 text = stringResource(Res.string.register),
@@ -122,7 +133,6 @@ fun RegisterScreen(
                 modifier = Modifier
                     .fillMaxWidth()
             )
-
         }
     }
 

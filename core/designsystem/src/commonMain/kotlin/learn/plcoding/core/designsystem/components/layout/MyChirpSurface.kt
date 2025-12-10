@@ -79,7 +79,7 @@ fun ChirpSurfacePreview() {
             },
             content = {
                 Text(
-                    text = "Welcome to Chirp!",
+                    text = "Welcome to My Chirp",
                     style = MaterialTheme.typography.titleLarge,
                     modifier = Modifier
                         .padding(vertical = 40.dp)

@@ -18,7 +18,7 @@ import com.plcoding.core.designsystem.components.layouts.MyChirpAdaptiveFormLayo
 fun MyChirpAdaptiveFormLayoutLightPreview() {
     MyChirpTheme {
         MyChirpAdaptiveFormLayout(
-            headerText = "Welcome to Chirp!",
+            headerText = "Welcome to My Chirp",
             errorText = "Login failed",
             logo = { MyChirpBrandLogo() },
             formContent = {

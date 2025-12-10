@@ -16,7 +16,7 @@ import io.ktor.client.request.parameter
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 
-//expect: a 'kmp-specific' keyword, that enables platform specific KMP calls, here, Android and iOS,
+//'expect': a 'kmp-specific' keyword, that enables platform specific KMP calls, here, Android and iOS,
 // it has no 'body', as it behaves kind of an 'interface'
 expect suspend fun <T> platformSafeCall(
     execute: suspend () -> HttpResponse,
