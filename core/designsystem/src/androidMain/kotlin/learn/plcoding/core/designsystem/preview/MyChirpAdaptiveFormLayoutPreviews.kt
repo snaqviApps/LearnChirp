@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import learn.plcoding.core.designsystem.components.brand.MyChirpBrandLogo
 import learn.plcoding.core.designsystem.theme.MyChirpTheme
 import androidx.compose.ui.tooling.preview.Preview
-import com.plcoding.core.designsystem.components.layouts.MyChirpAdaptiveFormLayout
+import learn.plcoding.core.designsystem.components.layout.MyChirpAdaptiveFormLayout
 
 @Composable
 @Preview

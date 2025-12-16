@@ -10,7 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.plcoding.core.designsystem.components.layouts.MyChirpAdaptiveFormLayout
+import learn.plcoding.core.designsystem.components.layout.MyChirpAdaptiveFormLayout
 import learn.plcoding.core.designsystem.components.brand.MyChirpBrandLogo
 import learn.plcoding.core.designsystem.components.buttons.MyChirpButton
 import learn.plcoding.core.designsystem.components.buttons.MyChirpButtonStyle

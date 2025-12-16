@@ -48,8 +48,9 @@ class HttpClientFactory(
             }
 
             defaultRequest {
-//                header("Content-Type", BuildKonfig.API_KEY)
-                header("x-api-key", BuildKonfig.API_KEY)
+//                header("Content-Type", BuildKonfig.API_KEY)           ----> initial config
+//                header("x-api-key", BuildKonfig.API_KEY)              ----> using const val from BuildKonfig
+                header("x-api-key", BuildKonfig.API_KEY_LIBRARY)
                 contentType(ContentType.Application.Json)
 
             }

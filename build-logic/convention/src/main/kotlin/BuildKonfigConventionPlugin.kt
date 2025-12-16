@@ -13,12 +13,11 @@ class BuildKonfigConventionPlugin: Plugin<Project> {
             with(pluginManager) {
                 apply("com.codingfeline.buildkonfig")
             }
-
             extensions.configure<BuildKonfigExtension> {
                 packageName = target.pathToPackageName()
                 defaultConfigs {
                     val apiKey = gradleLocalProperties(rootDir, rootProject.providers)
-                        .getProperty("API_KEY")
+                        .getProperty("API_KEY_LOCAL")
                         ?: throw IllegalStateException(
                             "Missing API_KEY property in local.properties"
                         )

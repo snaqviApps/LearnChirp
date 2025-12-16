@@ -1,4 +1,4 @@
-package com.plcoding.core.designsystem.components.layouts
+package learn.plcoding.core.designsystem.components.layout
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
@@ -30,7 +30,6 @@ import learn.plcoding.core.designsystem.theme.extended
 import learn.plcoding.core.presentation.util.DeviceConfiguration
 import learn.plcoding.core.presentation.util.currentDeviceConfiguration
 import learn.plcoding.core.designsystem.components.brand.MyChirpBrandLogo
-import learn.plcoding.core.designsystem.components.layout.MyChirpSurface
 import learn.plcoding.core.designsystem.theme.MyChirpTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
