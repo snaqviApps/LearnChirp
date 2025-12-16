@@ -36,7 +36,6 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun RegisterRoot(
-//    viewModel: RegisterViewModel = viewModel(),       // pre-Koin implementation
     viewModel: RegisterViewModel = koinViewModel(),
     onRegisterSuccess: (String) -> Unit
 ) {

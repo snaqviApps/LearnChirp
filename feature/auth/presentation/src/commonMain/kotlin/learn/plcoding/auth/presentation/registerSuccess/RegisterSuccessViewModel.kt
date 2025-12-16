@@ -11,7 +11,9 @@ class RegisterSuccessViewModel : ViewModel() {
 
     private var hasLoadedInitialData = false
 
-    private val _state = MutableStateFlow(RegisterSuccessState())
+    private val _state = MutableStateFlow(RegisterSuccessState(
+        registeredEmail = "testRegSuccess@example-pet-store.com"
+    ))
     val state = _state
         .onStart {
             if (!hasLoadedInitialData) {
